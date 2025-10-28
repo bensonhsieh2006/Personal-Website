@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0626;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,9 +13,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --font-geist-sans: 'Bitcount Grid Single', Arial, Helvetica, sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0d0626;
     --foreground: #ededed;
   }
 }
