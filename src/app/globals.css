@@ -13,10 +13,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@theme {
-  --font-geist-sans: 'Bitcount Grid Single', Arial, Helvetica, sans-serif;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0d0626;
