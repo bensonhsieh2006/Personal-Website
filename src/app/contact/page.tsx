@@ -1,14 +1,9 @@
 import Navbar from "../components/Navbar";
-import { Quicksand } from "next/font/google";
 
-const bold_quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 export default function Contact() {
   return (
-    <div className={bold_quicksand.className}>
+    <div className="font-(family-name:--font-quicksand) font-bold">
       <div className="w-full items-center justify-items-center">
         <Navbar />
       </div>
