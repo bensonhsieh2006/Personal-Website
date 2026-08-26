@@ -1,17 +1,25 @@
 import Navbar from "../components/Navbar";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Contact() {
   return (
-    <div className="font-(family-name:--font-quicksand) font-bold">
-      <div className="w-full items-center justify-items-center">
-        <Navbar />
+    <>
+      <Navbar />
+      <div
+        data-page-shell="true"
+        className="px-4 py-6 font-(family-name:--font-quicksand) font-bold sm:px-6 lg:px-10"
+      >
+        <div className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-6 text-lg sm:gap-8 sm:text-2xl lg:mt-20 lg:gap-10 lg:text-4xl">
+          <div className="w-full break-words py-4 text-center">☎ +886 905-599-158</div>
+          <div className="w-full break-words py-4 text-center">☎ +1 341-248-9147</div>
+          <div className="w-full break-words py-4 text-center">✉ bensonhsieh2006@gmail.com</div>
+          <div className="flex w-full items-center justify-center gap-3 break-all py-4 text-center sm:gap-4">
+            <FontAwesomeIcon icon={faGithub} className="text-2xl sm:text-3xl lg:text-4xl" />
+            <span>https://github.com/bensonhsieh2006</span>
+          </div>
+        </div>
       </div>
-      <div className="mt-20 flex flex-col items-center justify-center gap-10 text-4xl">
-        <div className="py-10">☎ +886 905-599-158</div>
-        <div className="py-10">✉ bensonhsieh2006@gmail.com</div>
-        <div className="py-10">Github: https://github.com/bensonhsieh2006</div>
-      </div>
-    </div>
+    </>
   );
 }

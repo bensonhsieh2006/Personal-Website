@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Quicksand} from "next/font/google";
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+
+config.autoAddCss = false; // Disable auto-CSS injection
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",

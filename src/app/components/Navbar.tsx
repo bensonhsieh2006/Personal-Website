@@ -46,20 +46,27 @@ export default function Navbar() {
 }
 
 const pageAnimation = () => {
-  document.documentElement.animate(
+  const pageShell = document.querySelector('[data-page-shell="true"]') as HTMLElement | null;
+
+  if (!pageShell) {
+    return;
+  }
+
+  pageShell.animate(
     [
       {
-        transform: "translateY(100%)",
+        transform: "translateY(25%)",
+        opacity: 0.8,
       },
       {
-        transform: "translateY(0)",
-      }
+        transform: "translateY(0%)",
+        opacity: 1,
+      },
     ],
     {
-      duration: 1000,
-      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      duration: 500,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
       fill: "forwards",
-      pseudoElement: "::view-transition-new(root)",
     }
   );
 };
