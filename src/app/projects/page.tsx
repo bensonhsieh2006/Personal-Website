@@ -1,9 +1,13 @@
+"use client";
+
 import Navbar from "../components/Navbar";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Projects() {
+  const { user } = useUser();
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
       <div
         data-page-shell="true"
         className="px-4 py-8 font-(family-name:--font-quicksand) sm:px-6 lg:px-10"

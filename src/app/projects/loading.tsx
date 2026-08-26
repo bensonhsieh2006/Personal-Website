@@ -2,7 +2,8 @@ import Navbar from "../components/Navbar";
 export default function Loading() {
   return (
     <div className="text-2xl p-10">
-      <Navbar />
+      <Navbar>
+      </Navbar>
       <p>Loading projects page...</p>
     </div>
   );

@@ -1,7 +1,9 @@
 "use client";
 import Navbar from "../components/Navbar";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Page() {
+  const { user } = useUser();
   function MouseOver(id: string) {
     document.body.style.cursor = "pointer";
     const about = document.getElementById(id);
@@ -20,7 +22,7 @@ export default function Page() {
 
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
       <div
         data-page-shell="true"
         className="px-3 py-4 font-(family-name:--font-quicksand) sm:px-6 lg:px-10"

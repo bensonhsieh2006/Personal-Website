@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 First, run the development server:
+Create `.env.local` in the project root with the Auth0 application values from `.env.example`. Keep this file local; it contains credentials and is ignored by Git. Restart the Next.js server after changing it so the environment is reloaded.
 
 ```bash
 npm run dev

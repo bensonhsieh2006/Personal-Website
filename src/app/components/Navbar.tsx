@@ -2,8 +2,14 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { useTransitionRouter } from "next-view-transitions";
+import type { User } from "@auth0/nextjs-auth0/types";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import Profile from "./Profile";
 
-export default function Navbar() {
+
+
+export default function Navbar({ user }: { user?: User | null }) {
   const router = useTransitionRouter();
   const routes = [
     {
@@ -23,6 +29,7 @@ export default function Navbar() {
       path: "/contact",
     },
   ];
+
   return (
     <nav className={styles.nav}>
       <div className={styles.links}>
@@ -41,6 +48,14 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
+      {user ? (
+        <div className="flex max-w-full items-center gap-2">
+          <Profile />
+          <LogoutButton />
+        </div>
+      ) : (
+        <LoginButton />
+      )}
     </nav>
   );
 }
