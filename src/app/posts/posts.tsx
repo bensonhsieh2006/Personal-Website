@@ -10,7 +10,7 @@ export type Post = {
 export const posts = {
   "test-post": {
     title: "Test Post",
-    date: "2026-08-26 UTC-7",
+    date: "2026-08-26 22:30 UTC-7",
     allowedRoles: ["Girlfriend"],
     children: (
       <>
@@ -21,7 +21,7 @@ export const posts = {
   },
   "first-post": {
     title: "First Post",
-    date: "2026-08-26 UTC-7",
+    date: "2026-08-26 22:30 UTC-7",
     allowedRoles: ["Girlfriend", "Member"],
     children: (
       <>
@@ -34,7 +34,7 @@ export const posts = {
   },
   "second-post": {
     title: "Daily Reminder: ",
-    date: "2026-08-26 UTC-7",
+    date: "2026-08-26 22:30 UTC-7",
     allowedRoles: ["Girlfriend"],
     children: (
       <>
