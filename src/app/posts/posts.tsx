@@ -26,9 +26,9 @@ export const posts = {
     children: (
       <>
         <p>This is the content of my first post.</p>
-        <p>You can know more about me in the "About" section.</p>
-        <p>You can see my projects in the "Projects" section.</p>
-        <p>You can see my contact info in the "Contact" section.</p>
+        <p>You can know more about me in the &quot;About&quot; section.</p>
+        <p>You can see my projects in the &quot;Projects&quot; section.</p>
+        <p>You can see my contact info in the &quot;Contact&quot; section.</p>
       </>
     ),
   },
