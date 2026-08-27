@@ -39,8 +39,8 @@ export default function Page() {
             </div>
             <div className="px-2 py-4 text-base font-normal sm:px-4 sm:text-lg lg:px-8 lg:text-2xl">
               <p className="mb-5">
-                Second year Electrical Engineering student in National Taiwan
-                University with experience in Python programming and web
+                Third year Electrical Engineering student in National Taiwan
+                University with experience in Python & C++  programming and web
                 development.
               </p>
               <p>
@@ -69,6 +69,35 @@ export default function Page() {
                   Department of Electrical Engineering, National Taiwan University
                   (2023 ~ Present)
                 </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            id="experience"
+            className="rounded-lg border border-gray-300 p-4 shadow-lg transition-transform duration-200 sm:p-6 lg:p-8"
+            onMouseOver={() => MouseOver("experience")}
+            onMouseOut={() => MouseOut("experience")}
+          >
+            <div className="mb-5 border-b border-gray-300 py-5 pl-3 text-3xl font-bold sm:py-7 sm:pl-5 sm:text-4xl lg:pl-8 lg:text-5xl">
+              <h1>Experience</h1>
+            </div>
+            <div className="p-2 text-base sm:p-4 sm:text-lg lg:p-6 lg:text-2xl">
+              <ul className="list-inside list-disc">
+                <li className="p-3 sm:p-5 font-bold">President</li>
+                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
+                  Information Division, Electrical Engineering Student
+                  Association, National Taiwan University
+                </p>
+                <li className="p-3 sm:p-5 font-bold">Event General Coordinator</li>
+                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
+                  The 39th Research Project Presentation of the Mathematics and
+                  Science Gifted Class, Taipei Municipal Jianguo High School
+                </p>
+                <li className="p-3 sm:p-5 font-bold">Participant</li>
+                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
+                  International Science Youth Forum @ Singapore
+                </p>
               </ul>
             </div>
           </div>
@@ -158,35 +187,6 @@ export default function Page() {
                 <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
                   Taipei Municipal Jianguo High School Science Fair, Academic Year
                   2021
-                </p>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            id="experience"
-            className="rounded-lg border border-gray-300 p-4 shadow-lg transition-transform duration-200 sm:p-6 lg:p-8"
-            onMouseOver={() => MouseOver("experience")}
-            onMouseOut={() => MouseOut("experience")}
-          >
-            <div className="mb-5 border-b border-gray-300 py-5 pl-3 text-3xl font-bold sm:py-7 sm:pl-5 sm:text-4xl lg:pl-8 lg:text-5xl">
-              <h1>Experience</h1>
-            </div>
-            <div className="p-2 text-base sm:p-4 sm:text-lg lg:p-6 lg:text-2xl">
-              <ul className="list-inside list-disc">
-                <li className="p-3 sm:p-5">Member</li>
-                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
-                  Information Division, Electrical Engineering Student
-                  Association, National Taiwan University
-                </p>
-                <li className="p-3 sm:p-5">Event General Coordinator</li>
-                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
-                  The 39th Research Project Presentation of the Mathematics and
-                  Science Gifted Class, Taipei Municipal Jianguo High School
-                </p>
-                <li className="p-3 sm:p-5">Participant</li>
-                <p className="pb-6 pl-6 font-normal sm:pl-8 lg:pl-10">
-                  International Science Youth Forum @ Singapore
                 </p>
               </ul>
             </div>

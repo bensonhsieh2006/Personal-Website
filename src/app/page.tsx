@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import { auth0 } from "../lib/auth0";
+import { Analytics } from '@vercel/analytics/next';
 
 export default async function Home() {
   const session = await auth0.getSession();
@@ -25,6 +26,7 @@ export default async function Home() {
           </div>
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-[clamp(160px,24dvh,300px)] w-[min(600px,75vw)] -translate-x-1/2 rounded-full bg-violet-600/15 blur-3xl" />
       </main>
+      <Analytics></Analytics>
     </div>
   );
 }
