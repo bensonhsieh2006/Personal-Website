@@ -19,6 +19,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Auth0 Roles
+
+To expose the RBAC roles assigned in Auth0, create a **Post Login** Action in the Auth0 Dashboard and add this code. Use the same namespace each time, deploy the Action, and attach it to the Login flow:
+
+```js
+exports.onExecutePostLogin = async (event, api) => {
+	const namespace = "https://personal-website.example.com";
+	const roles = event.authorization?.roles ?? [];
+
+	api.idToken.setCustomClaim(`${namespace}/roles`, roles);
+};
+```
+
+After changing the Action, sign out and sign in again. The profile reads the namespaced `/roles` claim and displays the Auth0 roles.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

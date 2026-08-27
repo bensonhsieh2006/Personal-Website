@@ -50,7 +50,7 @@ export default function Navbar({ user }: { user?: User | null }) {
       </div>
       {user ? (
         <div className="flex max-w-full items-center gap-2">
-          <Profile />
+          <Profile user={user} />
           <LogoutButton />
         </div>
       ) : (
