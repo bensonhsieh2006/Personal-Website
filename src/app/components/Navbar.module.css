@@ -26,6 +26,24 @@
   font-weight: 700;
 }
 
+.menuButton {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.menuIcon {
+  display: inline-block;
+}
+
+.menuIconHidden {
+  display: none;
+}
+
 .link {
   color: #fff;
   text-decoration: none;
@@ -42,15 +60,29 @@
   animation: text-flicker 5s linear infinite;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 750px) {
   .nav {
+    position: relative;
     min-height: auto;
     padding: 0.75rem 0.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menuButton {
+    display: block;
   }
 
   .links {
+    display: none;
+    order: 3;
     width: 100%;
     gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .links.menuOpen {
+    display: flex;
   }
 
   .link {

@@ -1,8 +1,11 @@
 'use client';
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { useTransitionRouter } from "next-view-transitions";
 import type { User } from "@auth0/nextjs-auth0/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Profile from "./Profile";
@@ -11,6 +14,7 @@ import Profile from "./Profile";
 
 export default function Navbar({ user }: { user?: User | null }) {
   const router = useTransitionRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const routes = [
     {
       label: "Home",
@@ -28,11 +32,33 @@ export default function Navbar({ user }: { user?: User | null }) {
       label: "Contact",
       path: "/contact",
     },
+    {
+      label: "Posts",
+      path: "/posts"
+    }
   ];
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.links}>
+      <button
+        type="button"
+        className={styles.menuButton}
+        aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isMenuOpen}
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        <FontAwesomeIcon
+          icon={faBars}
+          className={isMenuOpen ? styles.menuIconHidden : styles.menuIcon}
+          aria-hidden="true"
+        />
+        <FontAwesomeIcon
+          icon={faXmark}
+          className={isMenuOpen ? styles.menuIcon : styles.menuIconHidden}
+          aria-hidden="true"
+        />
+      </button>
+      <div className={`${styles.links} ${isMenuOpen ? styles.menuOpen : ""}`}>
         {routes.map((route) => (
           <Link 
             key={route.label} 
@@ -43,19 +69,22 @@ export default function Navbar({ user }: { user?: User | null }) {
               router.push(route.path, {
                 onTransitionReady: pageAnimation,
               });
+              setIsMenuOpen(false);
             }}>
             {route.label}
           </Link>
         ))}
       </div>
-      {user ? (
-        <div className="flex max-w-full items-center gap-2">
-          <Profile user={user} />
-          <LogoutButton />
-        </div>
-      ) : (
-        <LoginButton />
-      )}
+      <div className="m-2">
+        {user ? (
+          <div className="flex max-w-full items-center gap-2 m-2">
+            <Profile user={user} />
+            <LogoutButton />
+          </div>
+        ) : (
+          <LoginButton />
+        )}
+      </div>
     </nav>
   );
 }

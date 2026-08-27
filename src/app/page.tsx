@@ -7,8 +7,8 @@ export default async function Home() {
   return (
     <div>
       <Navbar user={user}></Navbar>
-      <main className="min-h-screen bg-[#060812] flex items-center justify-center px-6 py-12 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[300px] md:h-[450px] bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+      <main className="relative flex min-h-[calc(100dvh-15vh)] items-center justify-center overflow-hidden bg-[#060812] px-6 py-12 max-[640px]:min-h-[calc(100dvh-4.5rem)]">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[clamp(220px,35dvh,450px)] w-[min(900px,90vw)] -translate-x-1/2 rounded-full bg-blue-600/20 blur-3xl" />
           <div
             data-page-shell="true"
             className="px-4 py-4 font-(family-name:--font-quicksand) sm:px-6 lg:px-10"
@@ -23,7 +23,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[200px] md:h-[300px] bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-[clamp(160px,24dvh,300px)] w-[min(600px,75vw)] -translate-x-1/2 rounded-full bg-violet-600/15 blur-3xl" />
       </main>
     </div>
   );
