@@ -1,10 +1,12 @@
 "use client";
 
 import Navbar from "../components/Navbar";
+import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import type { User } from "@auth0/nextjs-auth0/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { posts } from "./posts";
 
 const ROLE_CLAIM = "https://personal-website.example.com/roles";
 type UserWithRoles = User & {
@@ -16,11 +18,18 @@ export default function Projects() {
   const { user, isLoading } = useUser();
   const claims = user as UserWithRoles | null | undefined;
   const roles = claims?.[ROLE_CLAIM] ?? claims?.roles ?? [];
+  const effectiveRoles = user && roles.length === 0 ? ["Member"] : roles;
+  const isOwner = roles.includes("Owner");
+  const isGirlfriend = roles.includes("Girlfriend");
   const roleLabel = isLoading
     ? "Loading..."
     : !user
       ? "Not logged in"
-      : roles.join(", ") || "Member";
+      : effectiveRoles.join(", ");
+  const visiblePosts = Object.entries(posts).filter(([, post]) =>
+    isOwner ||
+    post.allowedRoles.some((role) => effectiveRoles.includes(role)),
+  );
 
   return (
     <>
@@ -57,6 +66,46 @@ export default function Projects() {
                 return <p>Your roles: {roleLabel}</p>;
             }
           })()}
+        </div>
+        <div>
+          {user && !isLoading && (
+            <div>
+              {visiblePosts.map(([slug, post]) => (
+                <div key={slug} className="last:mb-0 mx-auto my-5 max-w-4xl rounded-lg border border-gray-300 p-6 shadow-lg">
+                  <Link
+                    href={`/posts/${slug}`}
+                    className="block text-2xl text-white hover:text-blue-500"
+                  >
+                    {post.title}
+                  </Link>
+                  {(isOwner ||
+                    (isGirlfriend &&
+                      post.allowedRoles.length === 1 &&
+                      post.allowedRoles[0] === "Girlfriend")) && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {post.allowedRoles.map((role) => (
+                        <span
+                          key={role}
+                          className={
+                            role === "Owner"
+                              ? "rounded-full bg-red-900 px-2.5 py-0.5 text-xs font-medium text-red-100"
+                              : role === "Girlfriend"
+                                ? "rounded-full bg-pink-200 px-2.5 py-0.5 text-xs font-medium text-pink-900"
+                                : "rounded-full bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-800"
+                          }
+                        >
+                          {role}
+                        </span>
+                        ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              {visiblePosts.length === 0 && (
+                <p className="text-white">You do not have access to any posts.</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>
