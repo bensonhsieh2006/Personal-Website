@@ -5,13 +5,18 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://bensonhsiehwebsite.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: MetadataRoute.Sitemap = [
+  const staticPages = [
     "",
     "/about",
     "/projects",
     "/contact",
     "/posts",
-  ].map((path) => ({
+    "/projects/sleepapnea",
+    "/projects/ckhsprojectpresentation",
+    "/projects/2025ntueeweekgame",
+  ];
+
+  const pages: MetadataRoute.Sitemap = staticPages.map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
   }));
