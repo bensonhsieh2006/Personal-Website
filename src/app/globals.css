@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap");
 
 :root {
   --background: #0d0626;
@@ -24,4 +24,100 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.back-to-link {
+  margin-top: 2.5rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(148 163 184);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(229 231 235);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.back-to-link:hover {
+  background-color: rgb(55 65 81);
+}
+
+.section-card {
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .section-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-card {
+    padding: 2rem;
+  }
+}
+
+.section-card:hover {
+  transform: translateY(-1px);
+}
+
+.section-header {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgb(209 213 219);
+  padding: 1.25rem 0 1.25rem 0.75rem;
+  font-size: clamp(1.875rem, 2vw + 1rem, 3rem);
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .section-header {
+    padding: 1.75rem 0 1.75rem 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header {
+    padding-left: 2rem;
+  }
+}
+
+.section-content {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-content {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-content {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+.section-list {
+  list-style: inside;
+  list-style-type: disc;
+}
+
+.section-list-item {
+  padding: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-list-item {
+    padding: 1.25rem;
+  }
 }

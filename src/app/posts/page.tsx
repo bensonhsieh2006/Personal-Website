@@ -7,6 +7,7 @@ import type { User } from "@auth0/nextjs-auth0/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { posts } from "./posts";
+import { MouseOut, MouseOver } from "../utils";
 
 const ROLE_CLAIM = "https://personal-website.example.com/roles";
 type UserWithRoles = User & {
@@ -26,9 +27,10 @@ export default function Projects() {
     : !user
       ? "Not logged in"
       : effectiveRoles.join(", ");
-  const visiblePosts = Object.entries(posts).filter(([, post]) =>
-    isOwner ||
-    post.allowedRoles.some((role) => effectiveRoles.includes(role)),
+  const visiblePosts = Object.entries(posts).filter(
+    ([, post]) =>
+      isOwner ||
+      post.allowedRoles.some((role) => effectiveRoles.includes(role)),
   );
 
   return (
@@ -71,10 +73,16 @@ export default function Projects() {
           {user && !isLoading && (
             <div>
               {visiblePosts.map(([slug, post]) => (
-                <div key={slug} className="last:mb-0 mx-auto my-5 max-w-4xl rounded-lg border border-gray-300 p-6 shadow-lg">
+                <div
+                  key={slug}
+                  id={slug}
+                  className="mx-auto my-5 max-w-4xl rounded-lg border border-gray-300 p-6 shadow-lg last:mb-0"
+                >
                   <Link
                     href={`/posts/${slug}`}
                     className="block text-2xl text-white hover:text-blue-500"
+                    onMouseOver={() => MouseOver(slug)}
+                    onMouseOut={() => MouseOut(slug)}
                   >
                     {post.title}
                   </Link>
@@ -96,13 +104,15 @@ export default function Projects() {
                         >
                           {role}
                         </span>
-                        ))}
+                      ))}
                     </div>
                   )}
                 </div>
               ))}
               {visiblePosts.length === 0 && (
-                <p className="text-white">You do not have access to any posts.</p>
+                <p className="text-white">
+                  You do not have access to any posts.
+                </p>
               )}
             </div>
           )}

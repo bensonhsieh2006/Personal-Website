@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
@@ -9,8 +9,6 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Profile from "./Profile";
-
-
 
 export default function Navbar({ user }: { user?: User | null }) {
   const router = useTransitionRouter();
@@ -34,8 +32,8 @@ export default function Navbar({ user }: { user?: User | null }) {
     },
     {
       label: "Posts",
-      path: "/posts"
-    }
+      path: "/posts",
+    },
   ];
 
   return (
@@ -43,7 +41,9 @@ export default function Navbar({ user }: { user?: User | null }) {
       <button
         type="button"
         className={styles.menuButton}
-        aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-label={
+          isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+        }
         aria-expanded={isMenuOpen}
         onClick={() => setIsMenuOpen((open) => !open)}
       >
@@ -60,9 +60,9 @@ export default function Navbar({ user }: { user?: User | null }) {
       </button>
       <div className={`${styles.links} ${isMenuOpen ? styles.menuOpen : ""}`}>
         {routes.map((route) => (
-          <Link 
-            key={route.label} 
-            href={route.path} 
+          <Link
+            key={route.label}
+            href={route.path}
             className={styles.link}
             onClick={(e) => {
               e.preventDefault();
@@ -70,14 +70,15 @@ export default function Navbar({ user }: { user?: User | null }) {
                 onTransitionReady: pageAnimation,
               });
               setIsMenuOpen(false);
-            }}>
+            }}
+          >
             {route.label}
           </Link>
         ))}
       </div>
       <div className="m-2">
         {user ? (
-          <div className="flex max-w-full items-center gap-2 m-2">
+          <div className="m-2 flex max-w-full items-center gap-2">
             <Profile user={user} />
             <LogoutButton />
           </div>
@@ -90,7 +91,9 @@ export default function Navbar({ user }: { user?: User | null }) {
 }
 
 const pageAnimation = () => {
-  const pageShell = document.querySelector('[data-page-shell="true"]') as HTMLElement | null;
+  const pageShell = document.querySelector(
+    '[data-page-shell="true"]',
+  ) as HTMLElement | null;
 
   if (!pageShell) {
     return;
@@ -111,6 +114,6 @@ const pageAnimation = () => {
       duration: 500,
       easing: "cubic-bezier(0.22, 1, 0.36, 1)",
       fill: "forwards",
-    }
+    },
   );
 };

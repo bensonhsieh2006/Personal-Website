@@ -43,5 +43,4 @@ export const posts = {
       </>
     ),
   },
-  
 } satisfies Record<string, Post>;

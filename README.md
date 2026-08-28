@@ -21,10 +21,10 @@ To expose the RBAC roles assigned in Auth0, create a **Post Login** Action in th
 
 ```js
 exports.onExecutePostLogin = async (event, api) => {
-	const namespace = "https://personal-website.example.com";
-	const roles = event.authorization?.roles ?? [];
+  const namespace = "https://personal-website.example.com";
+  const roles = event.authorization?.roles ?? [];
 
-	api.idToken.setCustomClaim(`${namespace}/roles`, roles);
+  api.idToken.setCustomClaim(`${namespace}/roles`, roles);
 };
 ```
 
@@ -34,7 +34,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
@@ -42,3 +41,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 This app uses Auth0 integration in Vercel project.
+
+## Prettier
+
+```bash
+pnpm exec prettier . --write
+```

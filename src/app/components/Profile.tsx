@@ -29,12 +29,16 @@ export default function Profile({ user }: { user: User }) {
             }}
           />
         </div>
-        <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#060812] bg-green-400" />
+        <span className="absolute -right-0.5 -bottom-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#060812] bg-green-400" />
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="min-w-0 flex-1">
         <p className="truncate text-xs font-semibold text-white">{user.name}</p>
-        <p className="mt-0.5 truncate text-[10px] text-slate-400">{user.email}</p>
-        <p className="mt-0.5 truncate text-[10px] font-medium text-blue-300">{roleLabel}</p>
+        <p className="mt-0.5 truncate text-[10px] text-slate-400">
+          {user.email}
+        </p>
+        <p className="mt-0.5 truncate text-[10px] font-medium text-blue-300">
+          {roleLabel}
+        </p>
       </div>
     </div>
   );

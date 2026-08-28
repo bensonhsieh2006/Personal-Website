@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Quicksand} from "next/font/google";
+import { Geist, Geist_Mono, Quicksand } from "next/font/google";
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -37,7 +37,10 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en">
         <head>
-          <meta name="google-site-verification" content="nWil8vrsDTqrQxjvi-u_NuIByokk39ow4VUD9cJzAZk" />
+          <meta
+            name="google-site-verification"
+            content="nWil8vrsDTqrQxjvi-u_NuIByokk39ow4VUD9cJzAZk"
+          />
         </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${quicksand.variable} antialiased`}
