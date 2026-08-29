@@ -22,10 +22,10 @@ export default function SleepApnea() {
 
           <div className="section-content font-normal">
             <p className="">
-              "This website is dedicated to showcasing the academic achievements
+              This website is dedicated to showcasing the academic achievements
               and projects of the 39th graduating Math and Science Gifted Class
               at Taipei Municipal Jianguo High School, as well as providing
-              details regarding the exhibition event."
+              details regarding the exhibition event.
             </p>
           </div>
 
